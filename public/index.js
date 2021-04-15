@@ -10,14 +10,18 @@ gradient.addColorStop(1, 'rgba(0, 199, 214, 0)');
 var data  = {
     labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October', 'November','December' ],
     datasets: [{
-			label: '',
-			backgroundColor: gradient,
-			pointBackgroundColor: 'violet',
+			label: 'application',
+			backgroundColor: 'rgba(52, 128, 210, 1)',
+			pointBackgroundColor: 'rgba(52, 128, 210, 1)',
 			borderWidth: 1,
-			borderColor: 'violet',
+			borderColor: 'rgba(52, 128, 210, 1)',
 			data: [60, 45, 80, 30, 35, 55,25,80,40,50,80,50]
     }]
 };
+
+var fontColor =  themeState ? '#5e6a81' : '#75adee';
+var gridLinesColor = themeState ? '#fff8e5' : 'rgba(200, 200, 200, 0.08)';
+var toolTipBgColor = themeState ? 'white' : 'rgba(0,0,0,0.4)';
 
 var options = {
 	responsive: true,
@@ -29,16 +33,16 @@ var options = {
 	scales: {
 		yAxes: [{
       ticks: {
-        fontColor: `${themeState ? '#5e6a81' : '#75adee'}`
+        fontColor: '#fff'
       },
 			gridLines: {
-				color: 'rgba(200, 200, 200, 0.08)',
+				color: '#fff8e5',
 				lineWidth: 1
 			}
 		}],
     xAxes:[{
       ticks: {
-        fontColor: `${themeState ? '#5e6a81' : '#75adee'}`
+        fontColor: '#fff'
       }
     }]
 	},
@@ -55,7 +59,7 @@ var options = {
 	},
 	tooltips: {
 		titleFontFamily: 'Poppins',
-		backgroundColor: 'rgba(0,0,0,0.4)',
+		backgroundColor: toolTipBgColor,
 		titleFontColor: 'white',
 		caretSize: 5,
 		cornerRadius: 2,
@@ -71,8 +75,12 @@ var chartInstance = new Chart(chart, {
 });
 
 document.querySelector('.switch-node').addEventListener('click', function () {
-
-
+	
+	const appLogoClasses = document.querySelector(".app-logo").classList
+	const appMainClasses = document.querySelector(".app-main").classList
+	const appLeftClasses = document.querySelector(".app-left").classList
+	const appRightClasses = document.querySelector(".app-right").classList
+	const bodyClasses = document.querySelector("body").classList
 
 	const iconClasses = document.querySelector('#switch-icon').classList
 	iconClasses.replace(iconClasses[1], `${iconClasses[1] === 'fa-moon' ?  'fa-sun' : 'fa-moon'}`);
@@ -85,25 +93,46 @@ document.querySelector('.switch-node').addEventListener('click', function () {
 		iconClasses.add('icon-dark');
 	} 
 	
-
 	const switchClasses = document.querySelector('.switch-wrapper').classList;
 	switchClasses.replace(switchClasses[1], `${switchClasses[1] === 'switch-wrapper-dark' ? 'switch-wrapper-light': 'switch-wrapper-dark'}`);
 
-	const chartContainerClasses =  document.querySelector('.chart-container').classList;
-
+	const chartContainerClasses =  document.querySelectorAll('.chart-container')
 	
 	themeState = iconClasses[1] === 'fa-moon' ? false : true;
 
-	
-	
+
 	if(themeState){ // use lightTheme
-		
-		chartContainerClasses.replace(chartContainerClasses[1], 'light-theme')
-		
+		appLogoClasses.replace(appLogoClasses[1], 'light-theme')
+		appMainClasses.replace(appMainClasses[1], 'light-theme')
+		bodyClasses.replace(bodyClasses[0], 'light-theme')
+		appLeftClasses.replace(appLeftClasses[1], 'light-theme')
+		appRightClasses.replace(appRightClasses[1], 'light-theme')
 	} else { // use darkTheme
-		chartContainerClasses.replace(chartContainerClasses[1], 'dark-theme')
-		
+		appLogoClasses.replace(appLogoClasses[1], 'dark-theme')
+		appMainClasses.replace(appMainClasses[1], 'dark-theme')
+		bodyClasses.replace(bodyClasses[0], 'dark-theme')
+		appLeftClasses.replace(appLeftClasses[1], 'dark-theme')
+		appRightClasses.replace(appRightClasses[1], 'dark-theme')
 	}
+
+
+	chartContainerClasses.forEach(element => {
+		let elementOwnClasses = element.classList
+
+		if(themeState){ // use lightTheme
+		
+			elementOwnClasses.replace(elementOwnClasses[1], 'light-theme')
+			
+		} else { // use darkTheme
+			elementOwnClasses.replace(elementOwnClasses[1], 'dark-theme')
+			
+		}
+
+	})
+
+
+
+	
 
 });
 
