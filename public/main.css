@@ -26,6 +26,7 @@
   --icon-color: violet;
   --draft-icon: #e9780e;
   --light-grey: rgba(156, 147, 147, 0.479);
+  --nav-light-blue: #74b5f2;
 }
 
 body {
@@ -167,11 +168,19 @@ button {
   margin-bottom: 12px;
 }
 .nav-list-item:not(.active):hover {
-  background-color: var(--list-item-hover);
+  background-color: rgba(253, 105, 194, 0.152);
   border-right: 2px solid violet;
+  border-left-width: 0.1;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+.nav-list-item.active {
+  background-color: rgba(1, 156, 213, 0.152);
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
 }
 .nav-list-item.active .nav-list-link {
-  color: var(--app-logo);
+  color: var(--nav-light-blue);
 }
 .nav-list-item.active .nav-list-link:after {
   height: 100%;
@@ -186,7 +195,7 @@ button {
   font-size: 14px;
   line-height: 24px;
   padding: 8px 24px;
-  color: var(--icon-color);
+  color: var(--main-color);
   display: flex;
   align-items: center;
   position: relative;
@@ -205,6 +214,9 @@ button {
   border-radius: 2px;
   opacity: 0;
   height: 0;
+}
+.nav-list-link:hover {
+  color: var(--icon-color);
 }
 
 .open-right-area {
@@ -295,9 +307,20 @@ button {
   width: 100%;
   border-radius: 10px;
   padding: 16px;
-  background: var(--app-bg-dark);
   display: flex;
   align-items: center;
+}
+.chart-container.dark-theme {
+  background: var(--app-bg-dark);
+}
+.chart-container.light-theme {
+  background: linear-gradient(var(--light-grey), rgba(190, 122, 245, 0.35));
+}
+.chart-container.light-theme h2, .chart-container.light-theme span, .chart-container.light-theme p {
+  color: var(--main-color) !important;
+}
+.chart-container.light-theme > .circle-big {
+  color: #524977 !important;
 }
 .chart-container.applicants {
   max-height: 320px;
@@ -518,9 +541,19 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   padding: 1px;
   border-radius: 50%;
   background: var(--main-color);
+}
+.profile-box .switch-wrapper .switch-node #switch-icon {
+  font-size: 15px;
+}
+.profile-box .switch-wrapper .switch-node .icon-light {
+  color: #ff7b00;
+}
+.profile-box .switch-wrapper .switch-node .icon-dark {
+  color: var(--list-item-hover);
 }
 .profile-box .switch-wrapper.switch-wrapper-dark {
   justify-content: flex-end;

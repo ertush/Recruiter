@@ -72,12 +72,18 @@ var chartInstance = new Chart(chart, {
 
 document.querySelector('.switch-node').addEventListener('click', function () {
 
-	const icon = document.getElementById('switch-icon');
+
 
 	const iconClasses = document.querySelector('#switch-icon').classList
 	iconClasses.replace(iconClasses[1], `${iconClasses[1] === 'fa-moon' ?  'fa-sun' : 'fa-moon'}`);
-	
-	iconClasses[1] === 'fa-moon' ? icon.setAttribute('color', 'rgba(52, 129, 210, .2)') : icon.setAttribute('color', 'rgb(255, 145, 0)')
+	if(iconClasses[2] === 'icon-dark'){ 
+		iconClasses.remove('icon-dark');
+		iconClasses.add('icon-light');
+	} 
+	else {
+		iconClasses.remove('icon-light');
+		iconClasses.add('icon-dark');
+	} 
 	
 
 	const switchClasses = document.querySelector('.switch-wrapper').classList;
@@ -90,16 +96,15 @@ document.querySelector('.switch-node').addEventListener('click', function () {
 
 	
 	
-	// if(themeState){ // use lightTheme
+	if(themeState){ // use lightTheme
 		
-	// 	chartContainerClasses.replace(chartContainerClasses[1], `${chartContainerClasses[1] === 'dark-theme' ? 'dark-theme' : 'light-theme'}`)
+		chartContainerClasses.replace(chartContainerClasses[1], 'light-theme')
 		
-	// } else { // use darkTheme
-	// 	chartContainerClasses.replace(chartContainerClasses[1], `${chartContainerClasses[1] === 'light-theme' ? 'light-theme' : 'dark-theme'}`)
+	} else { // use darkTheme
+		chartContainerClasses.replace(chartContainerClasses[1], 'dark-theme')
 		
-	// }
+	}
 
-	console.log({chartContainerClasses});
 });
 
 document.querySelector('.open-right-area').addEventListener('click', function () {

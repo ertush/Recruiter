@@ -31,6 +31,7 @@
   --icon-color: violet;
   --draft-icon:  #e9780e;
   --light-grey: rgba(156, 147, 147, 0.479);
+  --nav-light-blue: #74b5f2;
   
 }
 
@@ -166,13 +167,19 @@ button { cursor: pointer; }
   margin-bottom: 12px;
   
   &:not(.active):hover {
-    background-color: var(--list-item-hover);
+    background-color: rgba(253, 105, 194, 0.152);// var(--list-item-hover);
     border-right: 2px solid violet;
+    border-left-width: 0.1;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
   }
   
   &.active {
+    background-color: rgba(1, 156, 213, 0.152);
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
     .nav-list-link {
-      color: var(--app-logo); // var(--nav-link-active);
+      color: var(--nav-light-blue); // var(--nav-link-active);
       &:after {
         height: 100%;
         opacity: 1;
@@ -190,7 +197,7 @@ button { cursor: pointer; }
   font-size: 14px;
   line-height: 24px;
   padding: 8px 24px;
-  color: var(--icon-color); // var(--nav-link);
+  color: var(--main-color);// var(--nav-link);
   display: flex;
   align-items: center;
   position: relative;
@@ -211,6 +218,10 @@ button { cursor: pointer; }
     opacity: 0;
     height: 0;
    
+  }
+
+  &:hover{
+    color:  var(--icon-color);
   }
 }
 
@@ -310,25 +321,26 @@ button { cursor: pointer; }
   width: 100%;
   border-radius: 10px;
   padding: 16px;
-  background: var(--app-bg-dark);
   display: flex;
   align-items: center;
 
-  // .dark-theme { //default theme
-  //   background: var(--app-bg-dark);
-  // }
+  &.dark-theme { //default theme
+    background: var(--app-bg-dark);
+  }
 
-  // .ligth-theme {
-  //   h2, span, p {
-  //     color: var(--main-color) !important;
-  //   }
-  //   background: var(--light-grey);
-  //   filter: blur(1px);
-  //   z-index: -1;
-  // }
+  &.light-theme {
+    background: linear-gradient(var(--light-grey),rgba(190, 122, 245, 0.35));
+
+    h2,span, p {
+      color: var(--main-color) !important;
+    }
+
+  &>.circle-big{
+      color: #524977 !important;
+    }
+  }
 
 
-  
   &.applicants {
     max-height: 320px;
     overflow-y: auto;
@@ -560,14 +572,20 @@ button { cursor: pointer; }
       display:flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       padding: 1px;
       border-radius: 50%;
       background: var(--main-color);
 
-      // #switch-icon {
-      //   font-size: 15px;
-      //   color: darkmagenta;
-      // }
+      #switch-icon {
+        font-size: 15px;
+      }
+      .icon-light{
+        color: rgb(255, 123, 0);
+      }
+      .icon-dark{
+        color: var(--list-item-hover)
+      }
 
       
     }

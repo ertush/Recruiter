@@ -1,0 +1,17 @@
+{
+  "name": "recruitment-dash",
+  "version": "1.0.0",
+  "description": "SPA recruitment dashboard",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app/app.js",
+    "sass": "sass app/assets/main.scss public/main.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eric",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
