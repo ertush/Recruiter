@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -7,7 +9,7 @@
   --app-bg-dark: #01081f;
   --app-bg-before: linear-gradient(180deg, rgba(1,8,31,0) 0%, rgba(1,8,31,1) 100%);
   --app-bg-before-2: linear-gradient(0deg, rgba(1,8,31,0) 0%, rgba(1,8,31,1) 100%);
-  --app-bg-before-grey: linear-gradient(0deg, #72737600 0%, linear-gradient(var(--light-grey), var(--color-lightest)) 100%);
+  --app-bg-before-grey: linear-gradient(0deg, #3f414800 0%, #3f414800 100%);
   --app-bg-light: #151c32;
   --app-logo: #75adee;
   --nav-link: #5e6a81;
@@ -20,6 +22,7 @@
   --color-lightest: rgba(87, 94, 100, 0.35) ;
   --light-accent: rgba(52, 128, 210, 1);
   --light-accent-lighter: rgba(52, 128, 210, 0.6);
+  --light-accent-hover: rgba(32, 36, 156, 0.426);
   --warning-bg: #ffe5e5;
   --warning-icon: #ff8181;
   --applicant-bg: #e3fff1;
@@ -29,7 +32,7 @@
   --draft-bg: #fed8b3;
   --icon-color: violet;
   --draft-icon: #e9780e;
-  --light-grey: rgba(156, 147, 147, 0.479);
+  --light-grey: rgba(109, 103, 103, 0.255);
   --nav-light-blue: #74b5f2;
 }
 
@@ -87,8 +90,8 @@ body.light-theme {
   color: #6b6feb !important;
 }
 .app-left.light-theme .nav-list-item:not(.active):hover {
-  background: rgba(203, 107, 235, 0.686);
-  border-right: 2px solid #9f4ee1;
+  background: var(--light-accent-hover);
+  border-right: 2px solid var(--list-item-hover);
   padding-left: 10px;
   transition: 0.1s ease-in-out;
 }
@@ -126,6 +129,10 @@ body.light-theme {
 .app-main.light-theme h1, .app-main.light-theme span:not(.switch-node), .app-main.light-theme p {
   color: var(--list-item-hover) !important;
 }
+.app-main.light-theme .chart-svg > svg .percentage {
+  font-weight: 400;
+  fill: var(--list-item-hover);
+}
 
 .app-right {
   flex-basis: 320px;
@@ -143,13 +150,39 @@ body.light-theme {
 .app-right.light-theme {
   background: linear-gradient(var(--light-grey), var(--color-lightest));
 }
-.app-right.light-theme h2, .app-right.light-theme span, .app-right.light-theme p {
+.app-right.light-theme h2, .app-right.light-theme p {
   color: var(--list-item-hover) !important;
+}
+.app-right.light-theme a {
+  color: var(--app-bg-light);
+}
+.app-right.light-theme strong {
+  color: var(--light-accent);
+  opacity: 0.9;
+  font-weight: 500;
+}
+.app-right.light-theme span.notification-active::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--light-accent) !important;
+  top: -1px;
+  right: -1px;
+  box-shadow: 0 0 0 2px var(--light-grey) !important;
+}
+.app-right.light-theme .app-right-section .message-line:hover {
+  background: linear-gradient(var(--light-grey), var(--color-lightest));
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 .app-right.light-theme .profile-box::before {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 189px;
   height: 48px;
   width: 100%;
   background-image: var(--app-bg-before-grey) !important;
@@ -207,10 +240,10 @@ body.light-theme {
   color: var(--main-color) !important;
 }
 .app-logo.light-theme {
-  color: var(--light-accent) !important;
+  color: var(--list-item-hover) !important;
 }
 .app-logo.light-theme span {
-  color: var(--light-accent) !important;
+  color: var(--list-item-hover) !important;
 }
 
 ul {
@@ -314,7 +347,7 @@ button {
   line-height: 32px;
 }
 .main-header-line input {
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background-color: var(--color-lighter);
   border: none;
   color: var(--main-color);
@@ -421,11 +454,9 @@ button {
 .chart-container.light-theme {
   background: linear-gradient(var(--light-grey), var(--color-lightest));
 }
-.chart-container.light-theme h2, .chart-container.light-theme span, .chart-container.light-theme p, .chart-container.light-theme svg {
+.chart-container.light-theme h2, .chart-container.light-theme span, .chart-container.light-theme p {
   color: var(--list-item-hover) !important;
   stroke: var(--list-item-hover) !important;
-  stroke-width: 1.2;
-  fill: none;
 }
 .chart-container.applicants {
   max-height: 320px;
@@ -628,15 +659,16 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2.8rem;
   position: relative;
 }
 .profile-box:before {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 189px;
   height: 48px;
   width: 100%;
-  background-image: var(--app-bg-before-2);
+  background-image: var(--app-bg-before-2) !important;
   z-index: 1;
 }
 
@@ -700,7 +732,11 @@ button {
   margin-bottom: 8px;
 }
 .message-line:hover {
-  background-color: var(--list-item-hover);
+  background-color: var(--light-accent-hover);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 .message-line img {
   width: 32px;
@@ -745,7 +781,9 @@ button {
   font-size: 12px;
   line-height: 16px;
   color: var(--app-logo);
-  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--main-color);
 }
 
 .activity-text {
