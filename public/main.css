@@ -8,8 +8,9 @@
 :root {
   --app-bg-dark: #01081f;
   --app-bg-before: linear-gradient(180deg, rgba(1,8,31,0) 0%, rgba(1,8,31,1) 100%);
+  --app-bg-before-light-grey: linear-gradient(180deg, rgba(139, 139, 140, 0) 0%, rgba(139, 139, 140, 1) 100%);
   --app-bg-before-2: linear-gradient(0deg, rgba(1,8,31,0) 0%, rgba(1,8,31,1) 100%);
-  --app-bg-before-grey: linear-gradient(0deg, #3f414800 0%, #3f414800 100%);
+  --app-bg-before-grey: linear-gradient(0deg, rgba(139, 139, 140, 0) 0%, rgba(139, 139, 140, 0) 100%);
   --app-bg-light: #151c32;
   --app-logo: #75adee;
   --nav-link: #5e6a81;
@@ -153,8 +154,10 @@ body.light-theme {
   background: var(--app-bg-dark);
 }
 .app-right.light-theme {
-  background: var(--background-light-theme) h2, p;
-  background-color: var(--list-item-hover) !important;
+  background: var(--background-light-theme) !important;
+}
+.app-right.light-theme h2, .app-right.light-theme p {
+  color: var(--list-item-hover) !important;
 }
 .app-right.light-theme a {
   color: var(--app-bg-light);
@@ -190,6 +193,9 @@ body.light-theme {
   width: 100%;
   background-image: var(--app-bg-before-grey) !important;
   z-index: 1;
+}
+.app-right.light-theme::before {
+  background-image: var(--app-bg-before-light-grey) !important;
 }
 .app-right:before {
   content: "";
@@ -270,6 +276,7 @@ button {
 .nav-list-item {
   margin-left: 20px;
   margin-bottom: 12px;
+  width: auto;
 }
 .nav-list-item:not(.active):hover {
   background-color: rgba(253, 105, 194, 0.152);
@@ -862,6 +869,10 @@ button {
 }
 
 @media screen and (max-width: 1350px) {
+  .body {
+    overflow-y: hidden;
+  }
+
   .app-right {
     flex-basis: 240px;
     width: 240px;
@@ -872,6 +883,21 @@ button {
   }
 }
 @media screen and (max-width: 1200px) {
+  .app-right.light-theme {
+    background: var(--light-grey-op-1) !important;
+  }
+  .app-right.light-theme h2, .app-right.light-theme p, .app-right.light-theme button {
+    color: var(--list-item-hover) !important;
+  }
+  .app-right.light-theme a {
+    color: var(--app-bg-light);
+  }
+  .app-right.light-theme strong {
+    color: var(--light-accent);
+    opacity: 0.9;
+    font-weight: 500;
+  }
+
   .app-right {
     position: absolute;
     opacity: 0;
@@ -902,6 +928,10 @@ button {
   }
 }
 @media screen and (max-width: 1180px) {
+  .body {
+    overflow-y: hidden;
+  }
+
   .chart-row.two {
     flex-direction: column;
   }
@@ -923,6 +953,67 @@ button {
   }
 }
 @media screen and (max-width: 920px) {
+  .body {
+    overflow-y: hidden;
+  }
+
+  .app-right.light-theme {
+    background: var(--light-grey-op-1) !important;
+  }
+  .app-right.light-theme h2, .app-right.light-theme p, .app-right.light-theme button {
+    color: var(--list-item-hover) !important;
+  }
+  .app-right.light-theme a {
+    color: var(--app-bg-light);
+  }
+  .app-right.light-theme strong {
+    color: var(--light-accent);
+    opacity: 0.9;
+    font-weight: 500;
+  }
+
+  .app-left.light-theme {
+    background: var(--light-grey-op-1);
+  }
+  .app-left.light-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: 55% !important;
+  }
+  .app-left.light-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
+  }
+  .app-left.light-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
+  }
+  .app-left.light-theme button {
+    background-color: var(--bg-light-grey);
+    color: var(--app-bg-dark);
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+  }
+  .app-left.light-theme .close-menu {
+    background: transparent !important;
+    color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: 55% !important;
+  }
+  .app-left.dark-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
+  }
+  .app-left.dark-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
+  }
+
   .menu-button {
     display: flex;
   }
@@ -953,6 +1044,67 @@ button {
   }
 }
 @media screen and (max-width: 650px) {
+  .body {
+    overflow-y: hidden;
+  }
+
+  .app-right.light-theme {
+    background: var(--light-grey-op-1) !important;
+  }
+  .app-right.light-theme h2, .app-right.light-theme p, .app-right.light-theme button {
+    color: var(--list-item-hover) !important;
+  }
+  .app-right.light-theme a {
+    color: var(--app-bg-light);
+  }
+  .app-right.light-theme strong {
+    color: var(--light-accent);
+    opacity: 0.9;
+    font-weight: 500;
+  }
+
+  .app-left.light-theme {
+    background: var(--light-grey-op-1);
+  }
+  .app-left.light-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: 55% !important;
+  }
+  .app-left.light-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
+  }
+  .app-left.light-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
+  }
+  .app-left.light-theme button {
+    background-color: var(--bg-light-grey);
+    color: var(--app-bg-dark);
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+  }
+  .app-left.light-theme .close-menu {
+    background: transparent !important;
+    color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: 55% !important;
+  }
+  .app-left.dark-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
+  }
+  .app-left.dark-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
+  }
+
   .chart-row.three {
     flex-direction: column;
   }
@@ -967,8 +1119,27 @@ button {
   }
 }
 @media screen and (max-width: 520px) {
+  .body {
+    overflow-y: hidden;
+  }
+
   .chart-row.two .small {
     flex-direction: column;
+  }
+
+  .app-right.light-theme {
+    background: var(--light-grey-op-1) !important;
+  }
+  .app-right.light-theme h2, .app-right.light-theme p, .app-right.light-theme button {
+    color: var(--list-item-hover) !important;
+  }
+  .app-right.light-theme a {
+    color: var(--app-bg-light);
+  }
+  .app-right.light-theme strong {
+    color: var(--light-accent);
+    opacity: 0.9;
+    font-weight: 500;
   }
 
   .app-left.light-theme {
@@ -980,15 +1151,13 @@ button {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5em;
-    width: auto;
+    width: 55% !important;
   }
-  .app-left.light-theme .nav-list-item .nav-list-item::after {
-    content: "";
-    border: none !important;
+  .app-left.light-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
   }
-  .app-left.light-theme .nav-list-item:not(.active):hover {
-    background: violet;
-    margin-left: 100px;
+  .app-left.light-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
   }
   .app-left.light-theme button {
     background-color: var(--bg-light-grey);
@@ -999,6 +1168,20 @@ button {
   .app-left.light-theme .close-menu {
     background: transparent !important;
     color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: 55% !important;
+  }
+  .app-left.dark-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
+  }
+  .app-left.dark-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
   }
 
   .chart-row.two .small .chart-container {
@@ -1013,6 +1196,67 @@ button {
   }
 }
 @media screen and (max-width: 375px) {
+  .body {
+    overflow-y: hidden;
+  }
+
+  .app-right.light-theme {
+    background: var(--light-grey-op-1) !important;
+  }
+  .app-right.light-theme h2, .app-right.light-theme p, .app-right.light-theme button {
+    color: var(--list-item-hover) !important;
+  }
+  .app-right.light-theme a {
+    color: var(--app-bg-light);
+  }
+  .app-right.light-theme strong {
+    color: var(--light-accent);
+    opacity: 0.9;
+    font-weight: 500;
+  }
+
+  .app-left.light-theme {
+    background: var(--light-grey-op-1);
+  }
+  .app-left.light-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: 55% !important;
+  }
+  .app-left.light-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
+  }
+  .app-left.light-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
+  }
+  .app-left.light-theme button {
+    background-color: var(--bg-light-grey);
+    color: var(--app-bg-dark);
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+  }
+  .app-left.light-theme .close-menu {
+    background: transparent !important;
+    color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: 55% !important;
+  }
+  .app-left.dark-theme .nav-list-item .nav-list-link::after {
+    display: none !important;
+  }
+  .app-left.dark-theme .nav-list-item.active:hover {
+    border-left-color: var(--app-logo) !important;
+  }
+
   .nav-list-item.active {
     border-left: 2px solid var(--app-logo);
   }
