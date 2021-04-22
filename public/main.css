@@ -49,6 +49,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 body.dark-theme {
+  transition: 0.65s ease-in-out;
   background-color: #050e2d;
 }
 body.light-theme {
@@ -80,6 +81,7 @@ body.light-theme {
   display: none;
 }
 .app-left.dark-theme {
+  transition: 0.65s ease-in-out;
   background: var(--app-bg-dark);
 }
 .app-left.light-theme {
@@ -95,7 +97,7 @@ body.light-theme {
 .app-left.light-theme .nav-list-item:not(.active):hover {
   background: var(--light-accent-hover);
   padding-left: 10px;
-  transition: 0.1s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 .app-left.light-theme .nav-list-item svg {
   stroke: var(--list-item-hover) !important;
@@ -121,6 +123,7 @@ body.light-theme {
   display: none;
 }
 .app-main.dark-theme {
+  transition: 0.65s ease-in-out;
   backdrop-filter: blur(1px);
   background: transparent radial-gradient(circle, #910691 1%, #040f32 100%);
 }
@@ -151,6 +154,7 @@ body.light-theme {
   transition: all 0.4s ease-in;
 }
 .app-right.dark-theme {
+  transition: 0.65s ease-in-out;
   background: var(--app-bg-dark);
 }
 .app-right.light-theme {
@@ -243,6 +247,7 @@ body.light-theme {
   margin-left: 16px;
 }
 .app-logo.dark-theme {
+  transition: 0.65s ease-in-out;
   color: var(--main-color) !important;
 }
 .app-logo.dark-theme span {
@@ -284,7 +289,7 @@ button {
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
   padding-left: 10px;
-  transition: 0.1s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 .nav-list-item.active {
   background-color: rgba(1, 156, 213, 0.152);
@@ -458,9 +463,11 @@ button {
   align-items: center;
 }
 .chart-container.dark-theme {
+  transition: 0.65s ease-in-out;
   background: var(--app-bg-dark);
 }
 .chart-container.light-theme {
+  transition: 0.75s ease-in-out;
   background: linear-gradient(var(--light-grey), var(--color-lightest));
 }
 .chart-container.light-theme h2, .chart-container.light-theme span, .chart-container.light-theme p {
@@ -973,6 +980,7 @@ button {
   }
 
   .app-left.light-theme {
+    transition: 0.75s ease-in-out;
     background: var(--light-grey-op-1);
   }
   .app-left.light-theme .nav-list-item {
@@ -998,6 +1006,9 @@ button {
   .app-left.light-theme .close-menu {
     background: transparent !important;
     color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme {
+    transition: 0.65s ease-in-out;
   }
   .app-left.dark-theme .nav-list-item {
     margin-left: 0;
@@ -1064,6 +1075,7 @@ button {
   }
 
   .app-left.light-theme {
+    transition: 0.75s ease-in-out;
     background: var(--light-grey-op-1);
   }
   .app-left.light-theme .nav-list-item {
@@ -1089,6 +1101,9 @@ button {
   .app-left.light-theme .close-menu {
     background: transparent !important;
     color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme {
+    transition: 0.65s ease-in-out;
   }
   .app-left.dark-theme .nav-list-item {
     margin-left: 0;
@@ -1143,6 +1158,7 @@ button {
   }
 
   .app-left.light-theme {
+    transition: 0.75s ease-in-out;
     background: var(--light-grey-op-1);
   }
   .app-left.light-theme .nav-list-item {
@@ -1168,6 +1184,9 @@ button {
   .app-left.light-theme .close-menu {
     background: transparent !important;
     color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme {
+    transition: 0.65s ease-in-out;
   }
   .app-left.dark-theme .nav-list-item {
     margin-left: 0;
@@ -1216,6 +1235,7 @@ button {
   }
 
   .app-left.light-theme {
+    transition: 0.75s ease-in-out;
     background: var(--light-grey-op-1);
   }
   .app-left.light-theme .nav-list-item {
@@ -1241,6 +1261,9 @@ button {
   .app-left.light-theme .close-menu {
     background: transparent !important;
     color: var(--app-bg-dark);
+  }
+  .app-left.dark-theme {
+    transition: 0.65s ease-in-out;
   }
   .app-left.dark-theme .nav-list-item {
     margin-left: 0;
