@@ -33,7 +33,10 @@
   --icon-color: violet;
   --draft-icon: #e9780e;
   --light-grey: rgba(109, 103, 103, 0.255);
+  --light-grey-op-1: #dad9d9;
   --nav-light-blue: #74b5f2;
+  --background-light-theme: linear-gradient(var(--light-grey), var(--color-lightest));
+  --bg-light-grey: rgba(128, 128, 128, 0.612);
 }
 
 body {
@@ -86,12 +89,10 @@ body.light-theme {
 }
 .app-left.light-theme .nav-list-item.active {
   background: var(--light-accent-lighter);
-  border-right-color: var(--light-accent) !important;
   color: #6b6feb !important;
 }
 .app-left.light-theme .nav-list-item:not(.active):hover {
   background: var(--light-accent-hover);
-  border-right: 2px solid var(--list-item-hover);
   padding-left: 10px;
   transition: 0.1s ease-in-out;
 }
@@ -129,6 +130,10 @@ body.light-theme {
 .app-main.light-theme h1, .app-main.light-theme span:not(.switch-node), .app-main.light-theme p {
   color: var(--list-item-hover) !important;
 }
+.app-main.light-theme button {
+  background-color: var(--bg-light-grey);
+  color: var(--app-bg-dark);
+}
 .app-main.light-theme .chart-svg > svg .percentage {
   font-weight: 400;
   fill: var(--list-item-hover);
@@ -148,10 +153,8 @@ body.light-theme {
   background: var(--app-bg-dark);
 }
 .app-right.light-theme {
-  background: linear-gradient(var(--light-grey), var(--color-lightest));
-}
-.app-right.light-theme h2, .app-right.light-theme p {
-  color: var(--list-item-hover) !important;
+  background: var(--background-light-theme) h2, p;
+  background-color: var(--list-item-hover) !important;
 }
 .app-right.light-theme a {
   color: var(--app-bg-light);
@@ -270,7 +273,6 @@ button {
 }
 .nav-list-item:not(.active):hover {
   background-color: rgba(253, 105, 194, 0.152);
-  border-right: 2px solid violet;
   border-left-width: 0.1;
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
@@ -839,10 +841,10 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0;
-  background-color: var(--app-bg-dark);
   border: none;
-  color: var(--main-color);
   border-radius: 4px;
+  background-color: var(--app-bg-dark);
+  color: var(--main-color);
 }
 
 .close-menu {
@@ -967,6 +969,36 @@ button {
 @media screen and (max-width: 520px) {
   .chart-row.two .small {
     flex-direction: column;
+  }
+
+  .app-left.light-theme {
+    background: var(--light-grey-op-1);
+  }
+  .app-left.light-theme .nav-list-item {
+    margin-left: 0;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5em;
+    width: auto;
+  }
+  .app-left.light-theme .nav-list-item .nav-list-item::after {
+    content: "";
+    border: none !important;
+  }
+  .app-left.light-theme .nav-list-item:not(.active):hover {
+    background: violet;
+    margin-left: 100px;
+  }
+  .app-left.light-theme button {
+    background-color: var(--bg-light-grey);
+    color: var(--app-bg-dark);
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+  }
+  .app-left.light-theme .close-menu {
+    background: transparent !important;
+    color: var(--app-bg-dark);
   }
 
   .chart-row.two .small .chart-container {
